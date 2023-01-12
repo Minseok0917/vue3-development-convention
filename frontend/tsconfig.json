@@ -18,10 +18,10 @@
       "@pages/*": ["src/pages/*"],
       "@utils/*": ["src/utils/*"],
       "@stores/*": ["src/stores/*"],
-      "@router/*": ["src/router/*"],
+      "@router": ["src/router"],
       "@plugins/*": ["src/plugins/*"],
       "@components/*": ["src/components/*"],
-      "@composable/*": ["src/composabl/*e"]
+      "@composable/*": ["src/composable/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],

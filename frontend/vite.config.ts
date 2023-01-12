@@ -1,8 +1,7 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import path from "path";
-
-interface minseok {}
+import { env } from "process";
 
 // https://vitejs.dev/config/
 const resolveAlias = Object.fromEntries(
@@ -18,10 +17,15 @@ const resolveAlias = Object.fromEntries(
   }).map(([key, value]) => [key, path.resolve(__dirname, value)])
 );
 
+const envConfig = {
+  envPrefix: "VUE_",
+  envDir: path.join(__dirname, "./env"),
+};
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: resolveAlias,
   },
+  ...envConfig,
 });

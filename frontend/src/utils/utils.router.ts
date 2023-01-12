@@ -10,7 +10,6 @@ export function dynamicImportRoute({ name, path, component, ...routeOptions }: a
 }
 export function dynamicImportRoutes(routes: Array<Object>): any {
   return routes.map(dynamicImportRoute).map((route) => {
-    console.log(route);
     route.children &&= dynamicImportRoutes(route.children);
     return route;
   });
