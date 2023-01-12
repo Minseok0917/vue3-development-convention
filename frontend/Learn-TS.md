@@ -35,3 +35,7 @@ const rg: rg = {
 ```
 
 PICK
+
+고민
+// 재사용이 많은건 optional
+// 단일로 사용하는건 compostion

@@ -15,6 +15,8 @@ const { storeUser } = useUserStore();
     </a>
   </div>
   <HelloWorld msg="Vite + Vue" />
+  312
+  <router-view></router-view>
 </template>
 
 <style scoped>

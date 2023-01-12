@@ -1,4 +1,4 @@
-import { createStore } from "@utils/stores";
+import { createStore } from "@utils/utils.stores";
 
 export const useUserStore = createStore("user", {
   state: () => ({
