@@ -1,18 +1,27 @@
-# Vue 3 + TypeScript + Vite
+###### vue-development-template 개인 코드 컨벤션
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+#### export default 를 지양한다.
 
-## Recommended IDE Setup
+export default 를 사용할 경우 코드를 가져올 때 네이밍이 엉망이 될 수 있다.  
+export 로 통일하여 네이밍에 대한 단일성을 가져간다.
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- **Pinia Store** : store naming 에 대한 단일을 위한 유틸함수 제작
 
-## Type Support For `.vue` Imports in TS
+  ```typescript
+  // @stores/store.users.ts
+  import { createStore } from "@utils/store";
+  const useUserStore = createStore("user", {
+    state: () => ({}),
+  });
+  ```
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+  ```typescript
+  // @stores/index.ts
+  export { useUserStore } from "./store.user";
+  ```
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+  ```typescript
+  // App.vue
+  import { useUserStore } from "@stores";
+  const { storeUser } = useUserStore();
+  ```
