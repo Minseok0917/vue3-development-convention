@@ -11,7 +11,18 @@
     "esModuleInterop": true,
     "lib": ["ESNext", "DOM", "ES2019.Object"],
     "skipLibCheck": true,
-    "noEmit": true
+    "noEmit": true,
+    "baseUrl": "./",
+    "paths": {
+      "@api/*": ["src/api/*"],
+      "@pages/*": ["src/pages/*"],
+      "@utils/*": ["src/utils/*"],
+      "@stores/*": ["src/stores/*"],
+      "@router/*": ["src/router/*"],
+      "@plugins/*": ["src/plugins/*"],
+      "@components/*": ["src/components/*"],
+      "@composable/*": ["src/composabl/*e"]
+    }
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]

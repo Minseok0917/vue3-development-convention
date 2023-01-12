@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import HelloWorld from "./components/HelloWorld.vue";
-import "./stores";
+import { useUserStore } from "./stores";
+import { ref, reactive, watch } from "vue";
+import "./test";
 
-/* function useStore(naming: Array) {
-  return { storeUser: "" };
-}
+const { storeUser, a } = useUserStore();
+console.log(storeUser);
 
-const { storeUser } = useStore(["users"]); */
-// const { userStore } = storeUser();
+// const { storeUser, b } = useUserStore();
+// console.log(b);
 </script>
 
 <template>
